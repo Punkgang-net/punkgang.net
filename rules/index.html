@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Punk Gang :: Rules</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<style>
+body {
+  background: #000;
+  color: #00bfff;
+  font-family: monospace;
+  margin: 0;
+  padding: 0 0 60px 0;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar { width: 0; }
+
+header {
+  background: #050505;
+  border-bottom: 1px solid #00bfff;
+  padding: 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6em;
+  text-shadow: 0 0 3px #00bfff, 0 0 6px #00f0ff;
+}
+
+nav a {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+nav a:hover { text-decoration: underline; }
+
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.ascii, .rules-pre {
+  white-space: pre;
+  color: #00bfff;
+  text-shadow: 0 0 2px #00bfff, 0 0 5px #00f0ff;
+  overflow-x: auto;
+}
+
+.ascii {
+  text-align: center;
+}
+
+.rules-pre {
+  text-align: left;
+  margin-top: 30px;
+  padding-left: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #050505;
+  border-top: 1px solid #00bfff;
+  text-align: center;
+  padding: 8px;
+  font-size: 0.8em;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>PUNK GANG</h1>
+  <nav>
+    <a href="https://discord.gg/JMWxGfTnAM">[ DISCORD ]</a>
+    <a href="https://punkgang.net">[ HOME ]</a>  
+  </nav>
+</header>
+
+<main>
+
+<pre class="ascii">
+__________              __       ________                       
+\______   \__ __  ____ |  | __  /  _____/_____    ____    ____  
+ |     ___/  |  \/    \|  |/ / /   \  ___\__  \  /    \  / ___\ 
+ |    |   |  |  /   |  \    <  \    \_\  \/ __ \|   |  \/ /_/  >
+ |____|   |____/|___|  /__|_ \  \______  (____  /___|  /\___  / 
+                     \/     \/         \/     \/     \//_____/  
+
+</pre>
+
+<pre class="rules-pre">
+RULES (READ THEM OR DON'T STAY)
+
+1. Don't spam.
+No GIF spam.
+No soundboard abuse.
+No flooding chat because you're bored.
+
+2. Don't be annoying on purpose.
+If multiple people tell you to chill, chill.
+Being loud isn't a personality.
+
+3. No roleplaying things you are not.
+This isn't a LARP server.
+Don't pretend to be a hacker, criminal, insider, or anything else.
+Just be normal.
+
+4. Don't use the Punk Gang name for dumb shit.
+No making the group look stupid.
+
+5. Staff decisions are final.
+Arguing about moderation will not go your way.
+
+That's it.
+If this feels hard, this is not your place.
+</pre>
+
+</main>
+
+<footer>
+© 2026 PUNK GANG · punkgang.net
+</footer>
+
+<script>
+const glitchEls = document.querySelectorAll('.ascii, .rules-pre');
+
+function glitch() {
+  glitchEls.forEach(el => {
+    const original = el.dataset.original || el.textContent;
+    if (!el.dataset.original) el.dataset.original = original;
+
+    let out = '';
+    for (let i = 0; i < original.length; i++) {
+      if (original[i] !== ' ' && original[i] !== '\n' && Math.random() < 0.02) {
+        const chars = '!@#$%^&*<>?/[]{}';
+        out += chars[Math.floor(Math.random() * chars.length)];
+      } else {
+        out += original[i];
+      }
+    }
+    el.textContent = out;
+
+    if (Math.random() < 0.015) {
+      const h = 180 + Math.random() * 180;
+      el.style.color = `hsl(${h},100%,60%)`;
+      el.style.textShadow = `0 0 3px hsl(${h},100%,60%), 0 0 6px hsl(${h},100%,80%)`;
+    }
+  });
+
+  requestAnimationFrame(glitch);
+}
+
+glitch();
+</script>
+
+</body>
+</html>
+
